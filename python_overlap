@@ -1,0 +1,80 @@
+"""
+1- prime ve happy dosylari indirilip okunacak.
+2- dosyalar okuma icin acilacak
+3- dosya olusturulmasi gerekiyor
+4- dosyadaki tum satirlari oku
+
+"""
+
+
+# set file_path as a string
+s_prime_file = "../data/primenumbers.txt" # relative path definition
+s_happy_file = "../data/happynumbers.txt"
+
+# 3- dosyalar okuma icin acildi
+f_prime = open(s_prime_file, "r")
+f_happy = open(s_happy_file, "r")
+
+#listenin son elemanina -1 ile ulasirsiniz cunku dosya uzantisi
+s_prime_file.split(".")[-1]
+
+'''
+ilk elemani verir
+ array[0]
+
+bastan ikinci elemani verir
+ array[1] 
+
+son elemani verir
+ array[-1] 
+
+sondan 2.elemani verir
+ array[-2]
+'''
+
+
+
+# 4- dosyadaki tum satirlari oku
+l_primes = f_prime.readlines()
+l_happies = f_happy.readlines()
+
+# listeler initialize et
+l_remove_n_primes = []
+l_remove_n_happies = []
+
+print(l_primes)
+# for donggusuyle okunan tum satirlari satir satir tara ve satirlardaki elemanlari listeye ekle
+# \n karakterleri her satirda silindi
+for str_row in l_primes:
+    '''split ve replace ile karakterler elde ediliyor'''
+    n_prime = str_row.replace("\n","")
+    #n_prime2 = str_row.split("\n")[0]
+    #print(n_prime == n_prime2)
+    l_remove_n_primes.append(n_prime)
+# for happy number
+for str_row in l_happies:
+    '''split ve replace ile karakterler elde ediliyor'''
+    n_happies = str_row.replace("\n","")
+    #n_prime2 = str_row.split("\n")[0]
+    #print(n_prime == n_prime2)
+    l_remove_n_happies.append(n_prime)
+
+print(l_remove_n_primes)
+
+# run work faster and look more compact
+n_primes = [int(str_n.split("\n")[0]) for str_n in l_primes]
+n_happies = [int(str_n.split("\n")[0]) for str_n in l_happies]
+print(n_happies[:5])
+
+# find overlapped numbers
+intersection = set(n_primes) & set(n_happies)
+
+print("overlapped numbers: \n", intersection)
+# write folder
+# begin and finish values are numbers but write() expect input as string
+# thats why you need to convert int values into strin
+
+"""
+for usage:
+for index in (where for wander around) place 
+"""
