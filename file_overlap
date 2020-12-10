@@ -41,8 +41,18 @@ l_happies = f_happy.readlines()
 # listeler initialize et
 l_remove_n_primes = []
 l_remove_n_happies = []
+a = []
 
-print(l_primes)
+for x in l_remove_n_primes:
+    if x in l_remove_n_happies:
+        if x in l_primes and l_happies:
+            print("ortak olan sayılar",x)
+        else:
+            l_primes and l_happies.append(x)
+
+print(l_primes and l_happies)
+
+
 # for donggusuyle okunan tum satirlari satir satir tara ve satirlardaki elemanlari listeye ekle
 # \n karakterleri her satirda silindi
 for str_row in l_primes:
